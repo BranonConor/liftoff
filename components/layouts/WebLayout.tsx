@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import styled from "styled-components";
 
-export const WebLayout = ({ children }) => {
+interface IProps {
+  children: React.ReactNode;
+}
+export const WebLayout: React.FC<IProps> = (props) => {
+  const { children } = props;
   const siteTitle = "A productivity tool for streamlining events";
 
   return (
