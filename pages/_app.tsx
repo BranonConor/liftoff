@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { StyleProvider } from "../components/theme/StyleProvider";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { AppProps } from "next/app";
 
-const App = ({ Component, pageProps: { ...pageProps } }) => {
+const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => {
   const [theme, setTheme] = useState("dark");
   const isDarkTheme = theme === "dark";
 
