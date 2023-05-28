@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
-import styled, { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from "styled-components";
 
 export async function getInitialProps(ctx: DocumentContext) {
   const sheet = new ServerStyleSheet();
@@ -43,14 +43,10 @@ export default function MyDocument() {
           rel="stylesheet"
         />
       </Head>{" "}
-      <StyledBody>
+      <body>
         <Main />
         <NextScript />
-      </StyledBody>
+      </body>
     </Html>
   );
 }
-
-const StyledBody = styled.body`
-  background: black;
-`;

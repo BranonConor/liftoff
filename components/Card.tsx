@@ -28,14 +28,29 @@ export const Card: React.FC<IProps> = (props) => {
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
-    <StyledWrapper onMouseMove={onMouseMove}>
-      <Image src={image} alt="" width={200} height={100} />
-      <Title variant="heading2">{title}</Title>
-      <Text variant="body1">{description}</Text>
-      <Link href={link} />
+    <Link
+      href={link}
+      style={{
+        textDecoration: "none",
+      }}
+    >
+      <StyledWrapper
+        onMouseMove={onMouseMove}
+        whileTap={{
+          border: "2px solid white",
+        }}
+      >
+        <StyledImageWrapper>
+          <Image src={image} alt="" width={200} height={100} />
+        </StyledImageWrapper>
+        <StyledContentWrapper>
+          <Title variant="heading2">{title}</Title>
+          <Text variant="body1">{description}</Text>
+        </StyledContentWrapper>
 
-      <StyledOverlay style={style}></StyledOverlay>
-    </StyledWrapper>
+        <StyledOverlay style={style}></StyledOverlay>
+      </StyledWrapper>
+    </Link>
   );
 };
 
@@ -52,21 +67,54 @@ const StyledWrapper = styled(motion.div)(
     overflow: hidden;
     background: transparent;
     transition: 0.3s ease all;
-
-    p, h2 {
-        transition: 1s ease all;
-    }
+    display: flex;
+    align-items: center;
 
     &:hover {
         border: 2px solid rgba(250,250,250, 0.4);
     
         p, h2 {
-            color: white;
+            color: ${colors.font.body};
         }
+    }
+
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
     }
 `
 );
+const StyledImageWrapper = styled.div(
+  ({ theme: { colors } }) => `
+  display: flex;
+  height: 100%;
+  border-right: 2px solid ${colors.divider};
+  padding-right: 32px;
 
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid ${colors.divider};
+  }
+`
+);
+const StyledContentWrapper = styled.div(
+  ({ theme: { colors } }) => `
+  padding-left: 32px;
+  box-sizing: border-box;
+
+  p, h2 {
+    transition: 0.6s ease all;
+    color: ${colors.font.body};
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 16px 0 0 0;
+  }
+`
+);
 const StyledOverlay = styled(motion.div)(
   ({ theme: { colors } }) => `
   width: 100%;
@@ -75,7 +123,7 @@ const StyledOverlay = styled(motion.div)(
   left: 0;
   top: 0;
   z-index: 10;
-  background: ${colors.bgLight};
+  background: ${colors.secondaryBg};
   transition-duration: 1s;
 `
 );
