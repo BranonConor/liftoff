@@ -7,7 +7,73 @@ import {
   lineHeight,
   letterSpacing,
   textTransform,
+  TypographyProperties,
 } from "./typography";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    mode: string;
+    colors: {
+      black: string;
+      white: string;
+      primaryBg: string;
+      secondaryBg: string;
+      primaryGradient: string;
+      secondaryGradient: string;
+      tertiaryGradient: string;
+      button: {
+        defaultBg: string;
+        hoverBg: string;
+        textLight: string;
+        textDark: string;
+        borderLight: string;
+        borderDark: string;
+        bgRed: string;
+        bgRedLight: string;
+        secondary: {
+          background: string;
+          text: string;
+          hover: string;
+        };
+      };
+      chip: {
+        defaultBg: string;
+        hoverBg: string;
+        activeBg: string;
+        border: string;
+        text: string;
+      };
+      card: {
+        darkBg: string;
+      };
+      font: {
+        body: string;
+      };
+      link: {
+        default: string;
+        hover: string;
+      };
+      menu: {
+        border: string;
+      };
+      toast: {
+        progressBarBg: string;
+      };
+      divider: string;
+    };
+    shadows: {
+      standard: string;
+    };
+    typography: {
+      size: TypographyProperties;
+      font: TypographyProperties;
+      weight: TypographyProperties;
+      lineHeight: TypographyProperties;
+      letterSpacing: TypographyProperties;
+      textTransform: TypographyProperties;
+    };
+  }
+}
 
 export const lightTheme = {
   mode: "light",
