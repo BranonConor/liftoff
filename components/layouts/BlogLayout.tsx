@@ -1,13 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
 import styled from "styled-components";
+import { PrimaryButton } from "../buttons/PrimaryButton";
+import Router from "next/router";
 
 interface IProps {
   children: React.ReactNode;
 }
-export const WebLayout: React.FC<IProps> = (props) => {
+export const BlogLayout: React.FC<IProps> = (props) => {
   const { children } = props;
   const siteTitle = "A productivity tool for streamlining events";
 
@@ -28,17 +30,24 @@ export const WebLayout: React.FC<IProps> = (props) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <StyledContainer
-        initial={{ scale: 0.97, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          duration: 0.5,
-          type: "spring",
-        }}
-        exit={{ scale: 0.97, opacity: 0 }}
-      >
-        <StyledPageLayout>{children}</StyledPageLayout>
-      </StyledContainer>
+      <AnimatePresence mode="wait">
+        <StyledContainer
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+          }}
+          exit={{ x: -100, opacity: 0 }}
+        >
+          <StyledPageLayout>{children}</StyledPageLayout>
+          <PrimaryButton
+            onClick={() => Router.back()}
+            content="👈 Back Home"
+            variant="large"
+          />
+        </StyledContainer>
+      </AnimatePresence>
     </StyledLayout>
   );
 };

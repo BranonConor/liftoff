@@ -278,5 +278,9 @@ export const GlobalStyle = createGlobalStyle(
           padding: 0;
           margin: 8px 0;
       }
+      a {
+        font-weight: bold;
+        color: ${theme.colors.font.body};
+      }
   `
 );
