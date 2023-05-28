@@ -48,8 +48,7 @@ const StyledLayout = styled.div`
   box-sizing: border-box;
   background: transparent;
 `;
-const StyledContainer = styled(motion.div)(
-  ({ theme: { colors } }) => `
+const StyledContainer = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -66,8 +65,7 @@ const StyledContainer = styled(motion.div)(
   @media only screen and (max-width: 768px) {
     padding: 16px;
   }
-`
-);
+`;
 const StyledPageLayout = styled.main`
   max-width: 1080px;
   width: 100%;

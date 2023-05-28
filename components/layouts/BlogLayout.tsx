@@ -32,13 +32,13 @@ export const BlogLayout: React.FC<IProps> = (props) => {
       </Head>
       <AnimatePresence mode="wait">
         <StyledContainer
-          initial={{ x: -100, opacity: 0 }}
+          initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
-            duration: 0.5,
+            duration: 0.4,
             type: "spring",
           }}
-          exit={{ x: -100, opacity: 0 }}
+          exit={{ x: -50, opacity: 0 }}
         >
           <StyledPageLayout>{children}</StyledPageLayout>
           <PrimaryButton
