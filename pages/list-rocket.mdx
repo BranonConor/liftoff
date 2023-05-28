@@ -1,17 +1,22 @@
 import { BlogLayout } from "../components/layouts/BlogLayout";
+import { BlogImages } from "../components/layouts/BlogImages";
 
 export const meta = {
   author: "Branon Eusebio",
 };
 
-## ListRocket
+<BlogImages image1="/list-rocket2.png" image2="/list-rocket1.png" />
+
+## 🚀 ListRocket
 
 Ever needed to organize an event with your friends or family, only to find that it's impossible to get everyone on the same page? ListRocket is a tool we built to address this problem.
 
 - Instead of everyone setting up their own todo lists across several different apps and websites, rope everyone in all in one place.
 - Enjoy tailored features like Anonymous Mode, which makes for great seamless events in which gifts are involved.
 
-<a href="https://list-rocket.vercel.app">Check it out here!</a>
+<a href="https://list-rocket.vercel.app" target="_blank">
+  Check it out here!
+</a>
 
 export default ({ children }) => (
   <BlogLayout meta={meta}>{children}</BlogLayout>

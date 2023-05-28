@@ -81,4 +81,5 @@ const StyledPageLayout = styled.main`
   max-width: 1080px;
   width: 100%;
   position: relative;
+  padding: 16px 0;
 `;
