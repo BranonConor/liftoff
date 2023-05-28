@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 interface IProps {
@@ -10,8 +11,32 @@ export const BlogImages: React.FC<IProps> = (props) => {
 
   return (
     <StyledWrapper>
-      <StyledImage1 src={image1} alt="" width={100} height={100} />
-      <StyledImage2 src={image2} alt="" width={100} height={100} />
+      <StyledImage1
+        src={image1}
+        alt=""
+        width={100}
+        height={100}
+        initial={{ x: -60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+        }}
+        exit={{ x: 650, opacity: 0 }}
+      />
+      <StyledImage2
+        src={image2}
+        alt=""
+        width={100}
+        height={100}
+        initial={{ x: -60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.6,
+          type: "spring",
+        }}
+        exit={{ x: -60, opacity: 0 }}
+      />
     </StyledWrapper>
   );
 };
@@ -30,7 +55,7 @@ const StyledWrapper = styled.div(
 }
   `
 );
-const StyledImage1 = styled.img(
+const StyledImage1 = styled(motion.img)(
   ({ theme: { shadows } }) => `
   width: 100%;
   height: auto;
@@ -44,7 +69,7 @@ const StyledImage1 = styled.img(
 }
 `
 );
-const StyledImage2 = styled.img(
+const StyledImage2 = styled(motion.img)(
   ({ theme: { shadows } }) => `
     width: 100%;
     height: auto;

@@ -209,6 +209,7 @@ export const GlobalStyle = createGlobalStyle(
           padding: 0;
           font-family: 'Poppins';
           font-weight: 300;
+          overflow-x: hidden;
       }
   
       body {
@@ -222,6 +223,7 @@ export const GlobalStyle = createGlobalStyle(
           letter-spacing: ${theme.typography.letterSpacing.body1};
           background: ${theme.colors.primaryBg};
           transition: 1.5s ease all;
+          overflow-x: hidden;
       }
   
       h1 {
