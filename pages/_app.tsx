@@ -92,8 +92,8 @@ const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => {
 export default App;
 
 const StyledButton = styled(motion.button)(
-  ({ theme: { shadows } }) => `
-  position: absolute;
+  ({ theme: { shadows, colors } }) => `
+  position: fixed;
   top: 16px;
   right: 16px;
   display: flex;
@@ -107,6 +107,7 @@ const StyledButton = styled(motion.button)(
   cursor: pointer;
   border-radius: 100%;
   box-shadow: ${shadows.standard};
+  background: ${colors.primaryBg};
 
   @media only screen and (max-width: 768px) {
     bottom: 16px;
@@ -123,25 +124,25 @@ const StyledLightBackground = styled(motion.div)`
   background: white;
   border-radius: 100%;
   position: fixed;
-  top: -444px;
-  right: -444px;
+  top: -442px;
+  right: -442px;
   z-index: -1;
 
   @media only screen and (max-width: 768px) {
     top: initial;
-    bottom: -444px;
+    bottom: -442px;
   }
 `;
 const StyledDarkBackground = styled(motion.div)`
   background: black;
   border-radius: 100%;
   position: fixed;
-  top: -444px;
-  right: -444px;
+  top: -442px;
+  right: -442px;
   z-index: -1;
 
   @media only screen and (max-width: 768px) {
     top: initial;
-    bottom: -444px;
+    bottom: -442px;
   }
 `;

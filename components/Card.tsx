@@ -44,7 +44,7 @@ export const Card: React.FC<IProps> = (props) => {
           <Image src={image} alt="" width={200} height={100} />
         </StyledImageWrapper>
         <StyledContentWrapper>
-          <Title variant="heading2">{title}</Title>
+          <Title variant="heading3">{title}</Title>
           <Text variant="body1">{description}</Text>
         </StyledContentWrapper>
 
@@ -73,7 +73,7 @@ const StyledWrapper = styled(motion.div)(
     &:hover {
         border: 2px solid rgba(250,250,250, 0.4);
     
-        p, h2 {
+        p, h3 {
             color: ${colors.font.body};
         }
     }
@@ -105,7 +105,7 @@ const StyledContentWrapper = styled.div(
   padding-left: 32px;
   box-sizing: border-box;
 
-  p, h2 {
+  p, h3 {
     transition: 0.6s ease all;
     color: ${colors.font.body};
   }

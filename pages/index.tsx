@@ -25,13 +25,13 @@ const IndexPage: React.FC = () => {
         ) : (
           <StyledImage src="./logo-light.svg" alt="" width={500} height={100} />
         )}
-        <Title variant="heading1">
+        <StyledTitle variant="heading1">
           Exploring new horizons. Building better tools.
-        </Title>
+        </StyledTitle>
         <Divider alignment="left" />
         <Title variant="heading2">LIFTOFF Products</Title>
         <Card
-          title="ListRocket"
+          title="Reimaging collaborative lists"
           description="A productivity tool for streamlining event planning."
           image={
             theme.mode === "dark"
@@ -53,6 +53,16 @@ const StyledWrapper = styled.main`
   position: relative;
   z-index: 1;
 `;
+const StyledTitle = styled(Title)(
+  ({ theme: { colors } }) => `
+  background: ${colors.tertiaryGradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 42px; 
+`
+);
 const StyledImage = styled(motion(Image))`
   width: 500px;
 
